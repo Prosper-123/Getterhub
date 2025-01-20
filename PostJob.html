@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job - GHGigs</title>
+    <link rel="stylesheet" href="Styles.css">
+    <style>
+        /* Post Job Form Custom CSS */
+        .hero {
+            background: url('assets/images/post-job-bg.jpg') no-repeat center center/cover;
+            text-align: center;
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            margin-top: 10px;
+        }
+
+        .form-container {
+            width: 50%;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-footer a {
+            font-size: 1.1em;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Post Your Job Listing</h1>
+            <p>Find talented software developers for your project by posting a job today.</p>
+        </div>
+    </section>
+
+    <!-- Post Job Form Section -->
+    <div class="form-container">
+        <h2>Job Details</h2>
+        <form action="submit-job.html" method="POST">
+            <!-- Job Title -->
+            <div class="form-group">
+                <label for="job-title">Job Title</label>
+                <input type="text" id="job-title" name="job-title" placeholder="Enter Job Title" required>
+            </div>
+
+            <!-- Job Description -->
+            <div class="form-group">
+                <label for="job-description">Job Description</label>
+                <textarea id="job-description" name="job-description" placeholder="Describe the job in detail" required></textarea>
+            </div>
+
+            <!-- Required Skills -->
+            <div class="form-group">
+                <label for="skills">Required Skills</label>
+                <input type="text" id="skills" name="skills" placeholder="e.g., React, Node.js, etc." required>
+            </div>
+
+            <!-- Payment -->
+            <div class="form-group">
+                <label for="payment">Payment (Per Hour/Fixed Rate)</label>
+                <input type="text" id="payment" name="payment" placeholder="e.g., $50/hour or $1000 for project" required>
+            </div>
+
+            <!-- Deadline -->
+            <div class="form-group">
+                <label for="deadline">Deadline</label>
+                <input type="date" id="deadline" name="deadline" required>
+            </div>
+
+            <!-- Job Type -->
+            <div class="form-group">
+                <label for="job-type">Job Type</label>
+                <select id="job-type" name="job-type" required>
+                    <option value="full-time">Full-time</option>
+                    <option value="part-time">Part-time</option>
+                    <option value="contract">Contract</option>
+                    <option value="freelance">Freelance</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Post Job</button>
+            </div>
+        </form>
+
+        <!-- Footer -->
+        <div class="form-footer">
+            <p>Want to browse existing jobs? <a href="ghgigs.html">Go back to GHGigs</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GetterHub. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

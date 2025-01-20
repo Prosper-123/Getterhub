@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetterHub</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #3498db;
+            padding: 15px 20px;
+            color: white;
+        }
+
+        header .logo-nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1em;
+        }
+
+        header nav .login-btn {
+            background-color: #2ecc71;
+            padding: 8px 15px;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        header nav .login-btn:hover {
+            background-color: #27ae60;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('./assets/images/Startups.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        /* Blog Section */
+        .content {
+            width: 80%;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .content h3 {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .blog-card {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .blog-card .category {
+            font-size: 0.9em;
+            color: #3498db;
+        }
+
+        .blog-card h4 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .blog-card .meta {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .blog-card .read-more {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .pagination a {
+            padding: 10px 15px;
+            margin: 0 5px;
+            text-decoration: none;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .pagination a:hover {
+            background-color: #2980b9;
+        }
+
+        .pagination .disabled {
+            background-color: #bdc3c7;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-nav-container">
+            <a href="index.html"><img src="assets/images/logo.png" alt="GetterHub Logo" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="startups.html">Startups</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="ghgigs.html">GHGigs</a></li>
+                    <li><a href="webflip.html">WebFlip</a></li>
+                    <li><a href="https://getterhost.com" target="_blank">Hosting</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="./auth/login.html" class="login-btn">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h2>Welcome to GetterHub</h2>
+        <p>Your hub for success stories, startups, and innovative solutions.</p>
+    </section>
+    
+    <section class="content">
+        <h3>Featured Success Stories</h3>
+        <div class="blog-grid">
+            <!-- Blog 1 -->
+            <div class="blog-card">
+                <img src="bill-gates.jpg" alt="Bill Gates">
+                <p class="category">Technology</p>
+                <h4>Bill Gates: Microsoft Empire</h4>
+                <p>How Bill Gates built Microsoft and transformed the tech industry.</p>
+                <p class="meta">Date: Jan 17, 2025 | Admin: John Doe</p>
+                <a href="bill-gates.html" class="read-more">Read More</a>
+            </div>
+            <!-- Blog 2 -->
+            <div class="blog-card">
+                <img src="elon-musk.jpg" alt="Elon Musk">
+                <p class="category">Innovation</p>
+                <h4>Elon Musk: The Visionary</h4>
+                <p>From Tesla to SpaceX, how Elon Musk is shaping the future.</p>
+                <p class="meta">Date: Jan 17, 2025 | Admin: Jane Smith</p>
+                <a href="elon-musk.html" class="read-more">Read More</a>
+            </div>
+            <!-- Blog 3 -->
+            <div class="blog-card">
+                <img src="oprah-winfrey.jpg" alt="Oprah Winfrey">
+                <p class="category">Media</p>
+                <h4>Oprah Winfrey: Media Queen</h4>
+                <p>Oprah's journey from humble beginnings to media mogul.</p>
+                <p class="meta">Date: Jan 17, 2025 | Admin: Alex Brown</p>
+                <a href="oprah-winfrey.html" class="read-more">Read More</a>
+            </div>
+            <!-- More blogs can go here -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <a href="#" class="disabled">Prev</a>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">Next</a>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 GetterHub. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

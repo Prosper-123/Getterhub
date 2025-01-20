@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHGigs - GetterHub</title>
+    <link rel="stylesheet" href="Styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #3498db;
+            padding: 15px 20px;
+            color: white;
+        }
+
+        header .logo-nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1em;
+        }
+
+        header nav .login-btn {
+            background-color: #2ecc71;
+            padding: 8px 15px;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        header nav .login-btn:hover {
+            background-color: #27ae60;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('./assets/images/HomePage.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .content {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .cta-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Job Listings */
+        .job-listings {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .job-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .job-card h4 {
+            font-size: 1.8em;
+            margin: 15px 0;
+        }
+
+        .job-card p {
+            font-size: 1.1em;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .job-card .price {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .job-card .cta-btn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .job-card .cta-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Post Job Section */
+        .post-job-section {
+            background-color: #ecf0f1;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .post-job-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .post-job-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .post-job-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .how-it-works h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .step-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+        }
+
+        .step-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .step-card p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-nav-container">
+            <a href="index.html"><img src="assets/images/logo.png" alt="GetterHub Logo" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="startups.html">Startups</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="ghgigs.html">GHGigs</a></li>
+                    <li><a href="webflip.html">WebFlip</a></li>
+                    <li><a href="https://getterhost.com" target="_blank">Hosting</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="./auth/login.html" class="login-btn">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Post Jobs or Bid for Freelance Opportunities</h1>
+            <p>Find top talent or showcase your skills on the ultimate freelance platform for software development.</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content">
+        <h3>Explore the Latest Opportunities</h3>
+        <p>Browse the latest job listings or post your own project to find the right developers for your business.</p>
+
+        <!-- Job Listings Grid -->
+        <div class="job-listings">
+            <!-- Job 1 -->
+            <div class="job-card">
+                <h4>Full-Stack Developer</h4>
+                <p>We are looking for an experienced full-stack developer to join our team on a contract basis. Remote work allowed.</p>
+                <p class="price">$50/hour</p>
+                <a href="bid.html" class="cta-btn">Place Bid</a>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="job-card">
+                <h4>Mobile App Developer</h4>
+                <p>Help us create a mobile app from scratch for our e-commerce platform. Expertise in Flutter or React Native required.</p>
+                <p class="price">$30/hour</p>
+                <a href="bid.html" class="cta-btn">Place Bid</a>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="job-card">
+                <h4>Backend Developer</h4>
+                <p>Looking for a backend developer to help scale our existing API infrastructure. Experience with Node.js and MongoDB preferred.</p>
+                <p class="price">$40/hour</p>
+                <a href="bid.html" class="cta-btn">Place Bid</a>
+            </div>
+
+            <div class="job-card">
+                <h4>Backend Developer</h4>
+                <p>Looking for a backend developer to help scale our existing API infrastructure. Experience with Node.js and MongoDB preferred.</p>
+                <p class="price">$40/hour</p>
+                <a href="bid.html" class="cta-btn">Place Bid</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Job Section -->
+    <section class="post-job-section">
+        <h2>Post Your Job Listing</h2>
+        <p>Do you have a project that needs skilled developers? Post a job now and connect with top talent.</p>
+        <a href="PostJob.html" class="post-job-btn">Post a Job</a>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step-card">
+                <h3>Step 1</h3>
+                <p>Browse available jobs or post a job listing. You can choose to bid on jobs or offer your expertise.</p>
+            </div>
+            <div class="step-card">
+                <h3>Step 2</h3>
+                <p>Place your bid on jobs that interest you. Or, if you're an employer, review bids from developers.</p>
+            </div>
+            <div class="step-card">
+                <h3>Step 3</h3>
+                <p>Once your bid is accepted, negotiate the terms and start working together on exciting projects!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 GetterHub. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

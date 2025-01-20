@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebFlip - GetterHub</title>
+    <link rel="stylesheet" href="Styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #3498db;
+            padding: 15px 20px;
+            color: white;
+        }
+
+        header .logo-nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1em;
+        }
+
+        header nav .login-btn {
+            background-color: #2ecc71;
+            padding: 8px 15px;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        header nav .login-btn:hover {
+            background-color: #27ae60;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('./assets/images/HomePage.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .content {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .website-listings {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .website-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .website-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .website-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .website-card h4 {
+            font-size: 1.8em;
+            margin: 15px 0;
+        }
+
+        .website-card p {
+            font-size: 1.1em;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .website-card .price {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #e74c3c;
+        }
+
+        .website-card .cta-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .website-card .cta-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Creative Elements */
+        .cta-section {
+            background-color: #f1f1f1;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn-large {
+            background-color: #e74c3c;
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-btn-large:hover {
+            background-color: #c0392b;
+        }
+
+        /* Testimonial Section */
+        .testimonials {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 50px 20px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .testimonial-card p {
+            font-size: 1.1em;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .testimonial-card .customer-name {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #3498db;
+        }
+
+        .testimonial-card .rating {
+            color: #f39c12;
+        }
+
+        /* Additional Section */
+        .how-it-works {
+            background-color: #ecf0f1;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .step-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+        }
+
+        .step-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .step-card p {
+            color: #666;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-nav-container">
+            <a href="index.html"><img src="assets/images/logo.png" alt="GetterHub Logo" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="startups.html">Startups</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="ghgigs.html">GHGigs</a></li>
+                    <li><a href="webflip.html">WebFlip</a></li>
+                    <li><a href="https://getterhost.com" target="_blank">Hosting</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="./auth/login.html" class="login-btn">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Buy & Sell Websites</h1>
+            <p>Your one-stop marketplace for premium websites. Find your next business venture or sell your existing website.</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content">
+        <h3>Websites for Sale</h3>
+        <p>Browse through a curated selection of websites available for sale. All websites are fully developed, tested, and ready to launch.</p>
+
+        <!-- Website Listings Grid -->
+        <div class="website-listings">
+            <!-- Website 1 -->
+            <div class="website-card">
+                <img src="assets/images/online-store.jpg" alt="Online Store Website">
+                <h4>Fully Functional E-commerce Website</h4>
+                <p>Launch your online store with a fully optimized e-commerce platform. Includes product pages, shopping cart, checkout, and payment gateway.</p>
+                <p class="price">$2,500</p>
+                <a href="purchase.html" class="cta-btn">Buy Now</a>
+            </div>
+
+            <!-- Website 2 -->
+            <div class="website-card">
+                <img src="assets/images/portfolio-website.jpg" alt="Portfolio Website">
+                <h4>Freelancer Portfolio Website</h4>
+                <p>A perfect website for showcasing your skills and portfolio. Ideal for freelancers or creatives looking to attract clients.</p>
+                <p class="price">$1,200</p>
+                <a href="purchase.html" class="cta-btn">Buy Now</a>
+            </div>
+
+            <!-- Website 3 -->
+            <div class="website-card">
+                <img src="assets/images/blogging-platform.jpg" alt="Blogging Platform">
+                <h4>Monetize Your Blog</h4>
+                <p>Start your blogging journey with this fully functional blogging platform. Includes customizable themes, SEO optimization, and ad integration.</p>
+                <p class="price">$1,000</p>
+                <a href="purchase.html" class="cta-btn">Buy Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonials">
+        <div class="testimonial-card">
+            <p>"WebFlip helped me find the perfect website for my business. The process was smooth and straightforward!"</p>
+            <span class="customer-name">Sarah J.</span>
+            <div class="rating">★★★★★</div>
+        </div>
+        <div class="testimonial-card">
+            <p>"I sold my website on WebFlip and the transaction was seamless. Highly recommend for both buyers and sellers!"</p>
+            <span class="customer-name">David M.</span>
+            <div class="rating">★★★★★</div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <h2>Ready to Buy or Sell Your Website?</h2>
+        <p>Join the marketplace today and start making money or finding your next project!</p>
+        <a href="WebflipForm.html" class="cta-btn-large">Get Started Now</a>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step-card">
+                <h3>Browse Listings</h3>
+                <p>Explore various websites available for sale. Filter by category, price, or type.</p>
+            </div>
+            <div class="step-card">
+                <h3>Place Your Bid</h3>
+                <p>If you're interested in a website, place your bid and negotiate with the seller.</p>
+            </div>
+            <div class="step-card">
+                <h3>Make the Deal</h3>
+                <p>Once the deal is final, make the payment securely and take ownership of your new website!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 GetterHub. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
