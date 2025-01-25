@@ -4,27 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - GetterHub</title>
-    <link rel="stylesheet" href="Styles.css">
     <style>
         /* General Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             color: #333;
+            line-height: 1.6;
         }
 
         header {
-            background-color: #3498db;
+            background-color: #2c3e50;
             padding: 15px 20px;
             color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         header .logo-nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         header .logo {
@@ -44,47 +50,302 @@
             text-decoration: none;
             color: white;
             font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #f1c40f;
         }
 
         header nav .login-btn {
-            background-color: #2ecc71;
+            background-color: #3498db;
             padding: 8px 15px;
             color: white;
             font-weight: bold;
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
         header nav .login-btn:hover {
-            background-color: #27ae60;
+            background-color: #2980b9;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8em;
+            cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
-            background-image: url('./assets/images/HomePage.jpg'); 
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('assets/images/products-hero.jpg') no-repeat center center/cover;
         }
 
-        .hero h2 {
-            font-size: 3em;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
             margin: 0;
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .hero p {
             font-size: 1.5em;
-            margin: 10px 0;
+            margin: 20px 0;
+            color: white;
+            animation: fadeIn 2s ease-in-out;
         }
-        </style>
 
+        .hero-buttons {
+            margin-top: 30px;
+        }
+
+        .hero-btn {
+            padding: 15px 30px;
+            margin: 0 10px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .primary-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+        }
+
+        .primary-btn:hover {
+            background: #2980b9;
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-content h3 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .product-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .product-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .product-features li {
+            padding: 8px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-features li::before {
+            content: "✓";
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .product-cta {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* Footer Section */
+        footer {
+            background: #2c3e50;
+            padding: 50px 0 20px;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            color: #f1c40f;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #f1c40f;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            text-align: center;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #f1c40f;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            header nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #2c3e50;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 10px 0;
+            }
+
+            header nav ul.active {
+                display: flex;
+            }
+
+            header nav ul li {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-
     <header>
         <div class="logo-nav-container">
             <a href="index.html"><img src="assets/images/logo.png" alt="GetterHub Logo" class="logo"></a>
+            <span class="menu-toggle">☰</span>
             <nav>
                 <ul>
                     <li><a href="startups.html">Startups</a></li>
@@ -103,57 +364,169 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Our Software Products</h1>
-            <p>Explore our range of business and medical software solutions designed to streamline operations and enhance productivity.</p>
+            <h1>Our Products</h1>
+            <p>Innovative solutions to power your business growth</p>
+            <div class="hero-buttons">
+                <a href="#products" class="hero-btn primary-btn">Explore Products</a>
+                <a href="contact.html" class="hero-btn secondary-btn">Contact Sales</a>
+            </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="content">
-        <h3>Our Software Development Services</h3>
-        <div class="service">
-            <div class="service-text">
-                <h4>Web Application Development</h4>
-                <p>We create dynamic, responsive, and scalable web applications tailored to your business needs.</p>
+    <!-- Products Grid -->
+    <section id="products" class="products-grid">
+        <div class="product-card">
+            <img src="assets/images/erp-system.jpg" alt="ERP System" class="product-image">
+            <div class="product-content">
+                <h3>Enterprise ERP</h3>
+                <p>Comprehensive enterprise resource planning solution</p>
+                <ul class="product-features">
+                    <li>Financial Management</li>
+                    <li>Inventory Control</li>
+                    <li>HR Management</li>
+                    <li>Real-time Analytics</li>
+                </ul>
+                <div class="product-cta">
+                    <a href="#" class="cta-btn">Learn More</a>
+                </div>
             </div>
-            <img src="assets/images/web-application.jpg" alt="Web Application Development" class="service-image">
         </div>
 
-        <div class="service reverse">
-            <div class="service-text">
-                <h4>Mobile App Development</h4>
-                <p>Our team develops mobile apps for both Android and iOS, ensuring an excellent user experience.</p>
+        <div class="product-card">
+            <img src="assets/images/crm-system.jpg" alt="CRM System" class="product-image">
+            <div class="product-content">
+                <h3>Smart CRM</h3>
+                <p>Customer relationship management platform</p>
+                <ul class="product-features">
+                    <li>Lead Management</li>
+                    <li>Sales Automation</li>
+                    <li>Customer Analytics</li>
+                    <li>Email Integration</li>
+                </ul>
+                <div class="product-cta">
+                    <a href="#" class="cta-btn">Learn More</a>
+                </div>
             </div>
-            <img src="assets/images/mobile-app.jpg" alt="Mobile App Development" class="service-image">
         </div>
 
-        <div class="service">
-            <div class="service-text">
-                <h4>Cloud Solutions</h4>
-                <p>We offer secure, scalable cloud solutions that ensure your business operates efficiently in the cloud.</p>
+        <div class="product-card">
+            <img src="assets/images/pos-system.jpg" alt="POS System" class="product-image">
+            <div class="product-content">
+                <h3>POS System</h3>
+                <p>Modern point of sale solution</p>
+                <ul class="product-features">
+                    <li>Payment Processing</li>
+                    <li>Inventory Tracking</li>
+                    <li>Sales Analytics</li>
+                    <li>Customer Management</li>
+                </ul>
+                <div class="product-cta">
+                    <a href="#" class="cta-btn">Learn More</a>
+                </div>
             </div>
-            <img src="assets/images/cloud-solutions.jpg" alt="Cloud Solutions" class="service-image">
         </div>
 
-        <div class="service reverse">
-            <div class="service-text">
-                <h4>ERP System Development</h4>
-                <p>We build powerful ERP systems to streamline business processes and improve organizational efficiency.</p>
+        <div class="product-card">
+            <img src="assets/images/hr-system.jpg" alt="HR System" class="product-image">
+            <div class="product-content">
+                <h3>HR Management</h3>
+                <p>Complete human resource management system</p>
+                <ul class="product-features">
+                    <li>Employee Records</li>
+                    <li>Payroll Processing</li>
+                    <li>Leave Management</li>
+                    <li>Performance Tracking</li>
+                </ul>
+                <div class="product-cta">
+                    <a href="#" class="cta-btn">Learn More</a>
+                </div>
             </div>
-            <img src="assets/images/erp-system.jpg" alt="ERP System Development" class="service-image">
         </div>
 
-        <div class="service">
-            <div class="service-text">
-                <h4>E-commerce Solutions</h4>
-                <p>Our e-commerce solutions enable businesses to sell products online, with secure payment integrations.</p>
+        <div class="product-card">
+            <img src="assets/images/analytics-platform.jpg" alt="Analytics Platform" class="product-image">
+            <div class="product-content">
+                <h3>Analytics Platform</h3>
+                <p>Business intelligence and analytics solution</p>
+                <ul class="product-features">
+                    <li>Data Visualization</li>
+                    <li>Predictive Analytics</li>
+                    <li>Custom Reports</li>
+                    <li>Real-time Dashboards</li>
+                </ul>
+                <div class="product-cta">
+                    <a href="#" class="cta-btn">Learn More</a>
+                </div>
             </div>
-            <img src="assets/images/ecommerce.jpg" alt="E-commerce Solutions" class="service-image">
+        </div>
+
+        <div class="product-card">
+            <img src="assets/images/ecommerce-platform.jpg" alt="E-commerce Platform" class="product-image">
+            <div class="product-content">
+                <h3>E-commerce Platform</h3>
+                <p>Complete online store solution</p>
+                <ul class="product-features">
+                    <li>Product Management</li>
+                    <li>Order Processing</li>
+                    <li>Payment Gateway</li>
+                    <li>Marketing Tools</li>
+                </ul>
+                <div class="product-cta">
+                    <a href="#" class="cta-btn">Learn More</a>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 GetterHub. All Rights Reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Popular Posts</h4>
+                <ul>
+                    <li><a href="#">The Success Story of Aliko Dangote</a></li>
+                    <li><a href="#">Bethlehem Tilahun Alemu's Journey</a></li>
+                    <li><a href="#">Tony Elumelu: Entrepreneurship Champion</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">About GetterHub</a></li>
+                    <li><a href="#">Our Clients</a></li>
+                    <li><a href="#">Our Partners</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>Email: info@getterhub.com</li>
+                    <li>Phone: +1 (587) 415-2482</li>
+                    <li>Website: getterhub.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 - Getterhub.com</p>
+            <div class="footer-links">
+                <a href="#">Terms & Services</a> | <a href="#">Privacy Policy</a>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('header nav ul');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('header')) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>

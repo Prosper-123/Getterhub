@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace - WebFlip</title>
+    <link rel="stylesheet" href="Styles.css">
+    <style>
+        /* Marketplace Specific Styles */
+        .marketplace-header {
+            padding: 40px 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filters-section {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 1.1em;
+        }
+
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 40px 0;
+        }
+
+        .pagination-btn {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .pagination-btn.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header remains the same -->
+
+    <section class="marketplace-header">
+        <h1>Website Marketplace</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search websites...">
+        </div>
+        <div class="filters-section">
+            <div class="filter-group">
+                <select>
+                    <option value="">Category</option>
+                    <option value="ecommerce">E-commerce</option>
+                    <option value="saas">SaaS</option>
+                    <option value="content">Content</option>
+                    <option value="service">Service</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <select>
+                    <option value="">Price Range</option>
+                    <option value="0-10000">Under $10,000</option>
+                    <option value="10000-50000">$10,000 - $50,000</option>
+                    <option value="50000-100000">$50,000 - $100,000</option>
+                    <option value="100000+">$100,000+</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <select>
+                    <option value="">Revenue</option>
+                    <option value="0-1000">Under $1,000/mo</option>
+                    <option value="1000-5000">$1,000 - $5,000/mo</option>
+                    <option value="5000-10000">$5,000 - $10,000/mo</option>
+                    <option value="10000+">$10,000+/mo</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <div class="listings-grid">
+        <!-- Add 12-15 website cards here similar to the ones in WebFlip.html -->
+    </div>
+
+    <div class="pagination">
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <button class="pagination-btn">4</button>
+        <button class="pagination-btn">Next →</button>
+    </div>
+
+    <!-- Footer remains the same -->
+</body>
+</html> 

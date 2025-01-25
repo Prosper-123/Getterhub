@@ -2,28 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>GetterHub</title>
+    <base href="https://getterhub.com/">
     <style>
         /* General Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             color: #333;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         header {
             background-color: #3498db;
             padding: 15px 20px;
             color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         header .logo-nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         header .logo {
@@ -43,6 +52,11 @@
             text-decoration: none;
             color: white;
             font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #f1c40f;
         }
 
         header nav .login-btn {
@@ -51,6 +65,7 @@
             color: white;
             font-weight: bold;
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
         header nav .login-btn:hover {
@@ -59,45 +74,74 @@
 
         /* Hero Section */
         .hero {
-            background-image: url('./assets/images/HomePage.jpg'); 
+            background-image: url('./assets/images/HomePage.jpg');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 80px 20px;
+            padding: 120px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .hero h2 {
-            font-size: 3em;
+            font-size: 3.5em;
             margin: 0;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .hero p {
             font-size: 1.5em;
             margin: 10px 0;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Blog Section */
-        .content {
-            width: 80%;
-            max-width: 900px;
+        .main-container {
+            display: flex;
+            gap: 30px;
+            width: 90%;
+            max-width: 1400px;
             margin: 40px auto;
-            padding: 30px;
-            background-color: white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            padding: 0 15px;
+        }
+
+        .content {
+            flex: 1;
+            margin: 0;
+            width: auto;
         }
 
         .content h3 {
-            font-size: 2em;
+            font-size: 2.5em;
             text-align: center;
             margin-bottom: 30px;
+            color: #2c3e50;
         }
 
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
+            width: 100%;
         }
 
         .blog-card {
@@ -105,22 +149,31 @@
             padding: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .blog-card img {
             width: 100%;
-            height: auto;
+            height: 200px;
+            object-fit: cover;
             border-radius: 8px;
         }
 
         .blog-card .category {
             font-size: 0.9em;
             color: #3498db;
+            margin-top: 10px;
         }
 
         .blog-card h4 {
             font-size: 1.5em;
             margin: 10px 0;
+            color: #2c3e50;
         }
 
         .blog-card .meta {
@@ -132,6 +185,11 @@
             color: #3498db;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .blog-card .read-more:hover {
+            color: #2980b9;
         }
 
         /* Pagination */
@@ -149,6 +207,7 @@
             color: white;
             border-radius: 5px;
             font-weight: bold;
+            transition: background-color 0.3s;
         }
 
         .pagination a:hover {
@@ -161,28 +220,343 @@
 
         /* Footer Section */
         footer {
-            background-color: #333;
+            background-color: #2c3e50;
+            padding: 50px 0 20px;
             color: white;
-            padding: 20px 0;
-            text-align: center;
+        }
+
+        .footer-content {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            color: #f1c40f;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #f1c40f;
+        }
+
+        .date {
+            display: block;
+            font-size: 0.8em;
+            color: #888;
+        }
+
+        .contact-info li {
+            color: #ddd;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
             margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #f1c40f;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 300px;
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box {
+            margin-bottom: 30px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .recent-posts {
+            margin-top: 30px;
+        }
+
+        .recent-posts h3 {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .post-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .post-item:last-child {
+            border-bottom: none;
+        }
+
+        .post-item img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .post-info h4 {
+            margin: 0 0 5px 0;
+            font-size: 1em;
+            color: #2c3e50;
+        }
+
+        .post-info .post-meta {
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            header .logo-nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            header nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 8px 0;
+            }
+
+            .main-container {
+                flex-direction: column;
+                width: 100%;
+                padding: 15px;
+                margin: 20px 0;
+            }
+
+            .content {
+                width: 100%;
+                padding: 0;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-card {
+                width: 100%;
+                margin: 0 0 20px 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+                margin-top: 30px;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .post-item {
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                width: 100%;
+                padding: 20px;
+                gap: 30px;
+            }
+
+            .footer-section {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h2 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .blog-card {
+                padding: 15px;
+            }
+
+            .blog-card h4 {
+                font-size: 1.3em;
+            }
+
+            .footer-links a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8em;
+            cursor: pointer;
+            padding: 5px;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            header .logo-nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                position: relative;
+            }
+
+            header nav {
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #3498db;
+                display: none;
+                padding: 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            header nav.active {
+                display: block;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                width: 100%;
+                padding: 0;
+            }
+
+            header nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            header nav ul li:hover {
+                background-color: #2980b9;
+            }
+
+            .main-container {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                padding: 15px;
+                margin-top: 20px;
+            }
+
+            .content {
+                width: 100%;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+                margin-top: 30px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo-nav-container">
-            <a href="index.html"><img src="assets/images/logo.png" alt="GetterHub Logo" class="logo"></a>
+            <a href="/"><img src="/assets/images/logo.png" alt="GetterHub Logo" class="logo"></a>
+            <span class="menu-toggle">☰</span>
             <nav>
-                <ul>
-                    <li><a href="startups.html">Startups</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="ghgigs.html">GHGigs</a></li>
-                    <li><a href="webflip.html">WebFlip</a></li>
+                <ul class="nav-links">
+                    <li><a href="/startups.html">Startups</a></li>
+                    <li><a href="/Services.html">Services</a></li>
+                    <li><a href="/products.html">Products</a></li>
+                    <li><a href="/ghgigs.html">GHGigs</a></li>
+                    <li><a href="/webflip.html">WebFlip</a></li>
                     <li><a href="https://getterhost.com" target="_blank">Hosting</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="./auth/login.html" class="login-btn">Login</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/auth/login.html" class="login-btn">Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -193,81 +567,183 @@
         <p>Your hub for success stories, startups, and innovative solutions.</p>
     </section>
     
-    <section class="content">
-        <h3>Featured Success Stories</h3>
-        <div class="blog-grid">
-            <!-- Blog 1 -->
-            <div class="blog-card">
-                <img src="bill-gates.jpg" alt="Bill Gates">
-                <p class="category">Technology</p>
-                <h4>strive Masiyiwa: The Innovator</h4>
-                <p>How Bill Gates built Microsoft and transformed the tech industry.</p>
-                <p class="meta">Date: Jan 17, 2025 | Admin: John Doe</p>
-                <a href="bill-gates.html" class="read-more">Read More</a>
-            </div>
-            <!-- Blog 2 -->
-            <div class="blog-card">
-                <img src="elon-musk.jpg" alt="Elon Musk">
-                <p class="category">Innovation</p>
-                <h4>Ashish Thakkar: The Visionary</h4>
-                <p>From Tesla to SpaceX, how Elon Musk is shaping the future.</p>
-                <p class="meta">Date: Jan 17, 2025 | Admin: Jane Smith</p>
-                <a href="elon-musk.html" class="read-more">Read More</a>
-            </div>
-            <!-- Blog 3 -->
-            <div class="blog-card">
-                <img src="oprah-winfrey.jpg" alt="Oprah Winfrey">
-                <p class="category">Media</p>
-                <h4>Isabel Dos Santos: Media Queen</h4>
-                <p>Oprah's journey from humble beginnings to media mogul.</p>
-                <p class="meta">Date: Jan 17, 2025 | Admin: Alex Brown</p>
-                <a href="oprah-winfrey.html" class="read-more">Read More</a>
+    <div class="main-container">
+        <section class="content">
+            <h3>Featured Success Stories</h3>
+            <div class="blog-grid">
+                <!-- Blog 1 -->
+                <div class="blog-card">
+                    <img src="/assets/images/bill-gates.jpg" alt="Bill Gates">
+                    <p class="category">Technology</p>
+                    <h4>Strive Masiyiwa: The Innovator</h4>
+                    <p>How Strive Masiyiwa built Econet and transformed the tech industry.</p>
+                    <p class="meta">Date: Jan 17, 2025 | Admin: John Doe</p>
+                    <a href="/blog-post.html" class="read-more">Read More</a>
+                </div>
+                <!-- Blog 2 -->
+                <div class="blog-card">
+                    <img src="/assets/images/elon-musk.jpg" alt="Elon Musk">
+                    <p class="category">Innovation</p>
+                    <h4>Ashish Thakkar: The Visionary</h4>
+                    <p>From Mara Group to space, how Ashish Thakkar is shaping the future.</p>
+                    <p class="meta">Date: Jan 17, 2025 | Admin: Jane Smith</p>
+                    <a href="/blog-post.html" class="read-more">Read More</a>
+                </div>
+                <!-- Blog 3 -->
+                <div class="blog-card">
+                    <img src="/assets/images/oprah-winfrey.jpg" alt="Oprah Winfrey">
+                    <p class="category">Media</p>
+                    <h4>Isabel Dos Santos: Media Queen</h4>
+                    <p>Isabel's journey from humble beginnings to media mogul.</p>
+                    <p class="meta">Date: Jan 17, 2025 | Admin: Alex Brown</p>
+                    <a href="/blog-post.html" class="read-more">Read More</a>
+                </div>
+
+                <!-- Blog 4 -->
+                <div class="blog-card">
+                    <img src="/assets/images/oprah-winfrey.jpg" alt="Oprah Winfrey">
+                    <p class="category">Media</p>
+                    <h4>Tony Elumelu: Media Queen</h4>
+                    <p>Tony's journey from humble beginnings to media mogul.</p>
+                    <p class="meta">Date: Jan 17, 2025 | Admin: Alex Brown</p>
+                    <a href="/blog-post.html" class="read-more">Read More</a>
+                </div>
+
+                <!-- Blog 5 -->
+                <div class="blog-card">
+                    <img src="/assets/images/oprah-winfrey.jpg" alt="Oprah Winfrey">
+                    <p class="category">Media</p>
+                    <h4>Aliko Dangote: Media Queen</h4>
+                    <p>Aliko's journey from humble beginnings to media mogul.</p>
+                    <p class="meta">Date: Jan 17, 2025 | Admin: Alex Brown</p>
+                    <a href="/blog-post.html" class="read-more">Read More</a>
+                </div>
+
+                <!-- Blog 6 -->
+                <div class="blog-card">
+                    <img src="/assets/images/oprah-winfrey.jpg" alt="Oprah Winfrey">
+                    <p class="category">Media</p>
+                    <h4>Tilahun Alemu: Media Queen</h4>
+                    <p>Tilahun's journey from humble beginnings to media mogul.</p>
+                    <p class="meta">Date: Jan 17, 2025 | Admin: Alex Brown</p>
+                    <a href="/blog-post.html" class="read-more">Read More</a>
+                </div>
+                <!-- More blogs can go here -->
             </div>
 
-            <!-- Blog 4 -->
-            <div class="blog-card">
-                <img src="oprah-winfrey.jpg" alt="Oprah Winfrey">
-                <p class="category">Media</p>
-                <h4>Tony Elumela: Media Queen</h4>
-                <p>Oprah's journey from humble beginnings to media mogul.</p>
-                <p class="meta">Date: Jan 17, 2025 | Admin: Alex Brown</p>
-                <a href="oprah-winfrey.html" class="read-more">Read More</a>
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="disabled">Prev</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">Next</a>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="search-box">
+                <input type="text" placeholder="Search blogs...">
             </div>
 
-            <!-- Blog 5 -->
-            <div class="blog-card">
-                <img src="oprah-winfrey.jpg" alt="Oprah Winfrey">
-                <p class="category">Media</p>
-                <h4>Aliko Dangote: Media Queen</h4>
-                <p>Oprah's journey from humble beginnings to media mogul.</p>
-                <p class="meta">Date: Jan 17, 2025 | Admin: Alex Brown</p>
-                <a href="oprah-winfrey.html" class="read-more">Read More</a>
-            </div>
+            <div class="recent-posts">
+                <h3>Recent Posts</h3>
+                <div class="post-item">
+                    <img src="/assets/images/aliko-dangote.jpg" alt="Aliko Dangote">
+                    <div class="post-info">
+                        <h4>The Success Story of Aliko Dangote</h4>
+                        <span class="post-meta">January 6, 2025</span>
+                    </div>
+                </div>
 
-            <!-- Blog 6 -->
-            <div class="blog-card">
-                <img src="oprah-winfrey.jpg" alt="Oprah Winfrey">
-                <p class="category">Media</p>
-                <h4>Tilahua Alemu: Media Queen</h4>
-                <p>Oprah's journey from humble beginnings to media mogul.</p>
-                <p class="meta">Date: Jan 17, 2025 | Admin: Alex Brown</p>
-                <a href="oprah-winfrey.html" class="read-more">Read More</a>
-            </div>
-            <!-- More blogs can go here -->
-        </div>
+                <div class="post-item">
+                    <img src="/assets/images/bethlehem-alemu.jpg" alt="Bethlehem Alemu">
+                    <div class="post-info">
+                        <h4>Bethlehem Tilahun Alemu's Journey</h4>
+                        <span class="post-meta">January 5, 2025</span>
+                    </div>
+                </div>
 
-        <!-- Pagination -->
-        <div class="pagination">
-            <a href="#" class="disabled">Prev</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">Next</a>
-        </div>
-    </section>
+                <div class="post-item">
+                    <img src="/assets/images/tony-elumelu.jpg" alt="Tony Elumelu">
+                    <div class="post-info">
+                        <h4>Tony Elumelu: Entrepreneurship Champion</h4>
+                        <span class="post-meta">January 4, 2025</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
     
     <footer>
-        <p>&copy; 2025 GetterHub. All Rights Reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Popular Posts</h4>
+                <ul>
+                    <li>
+                        <a href="#">The Success Story of Aliko Dangote: Africa's Business Titan</a>
+                        <span class="date">January 6, 2025</span>
+                    </li>
+                    <li>
+                        <a href="#">Bethlehem Tilahun Alemu: Ethiopia's Trailblazing Entrepreneur</a>
+                        <span class="date">January 5, 2025</span>
+                    </li>
+                    <li>
+                        <a href="#">The Success Story of Tony Elumelu: Africa's Champion of Entrepreneurship</a>
+                        <span class="date">January 4, 2025</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">About GetterHub</a></li>
+                    <li><a href="#">Our Clients</a></li>
+                    <li><a href="#">Our Partners</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Take the next step toward achieving your goals. Drop us a message, and we'll connect with you to discuss how we can help.</p>
+                <ul class="contact-info">
+                    <li><i class="email-icon"></i> Email: info@getterhub.com</li>
+                    <li><i class="phone-icon"></i> Mobile: +1 (587) 415-2482</li>
+                    <li><i class="web-icon"></i> Website: getterhub.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 - Getterhub.com</p>
+            <div class="footer-links">
+                <a href="/terms.html">Terms & Services</a> | 
+                <a href="/privacy.html">Privacy Policy</a>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('header nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('header')) {
+                nav.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('header nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
