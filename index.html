@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>GetterHub</title>
-    <base href="https://getterhub.com/">
     <style>
         /* General Styles */
         body {
@@ -306,6 +305,7 @@
 
         .search-box {
             margin-bottom: 30px;
+            width: 280px;
         }
 
         .search-box input {
@@ -365,77 +365,7 @@
         }
 
         /* Responsive Styles */
-        @media screen and (max-width: 768px) {
-            header .logo-nav-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            header nav ul {
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                padding: 10px 0;
-            }
-
-            header nav ul li {
-                width: 100%;
-                text-align: center;
-                padding: 8px 0;
-            }
-
-            .main-container {
-                flex-direction: column;
-                width: 100%;
-                padding: 15px;
-                margin: 20px 0;
-            }
-
-            .content {
-                width: 100%;
-                padding: 0;
-            }
-
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .blog-card {
-                width: 100%;
-                margin: 0 0 20px 0;
-            }
-
-            .sidebar {
-                width: 100%;
-                position: static;
-                margin-top: 30px;
-            }
-
-            .search-box input {
-                width: 100%;
-            }
-
-            .post-item {
-                width: 100%;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                width: 100%;
-                padding: 20px;
-                gap: 30px;
-            }
-
-            .footer-section {
-                width: 100%;
-                text-align: center;
-            }
-
-            .footer-bottom {
-                width: 100%;
-                padding: 20px;
-            }
-        }
+        
 
         @media screen and (max-width: 480px) {
             .hero {
@@ -453,6 +383,12 @@
             .blog-card {
                 padding: 15px;
             }
+            .blog-card img{
+                width: 300px;
+            }
+            .blog-card p{
+                width: 300px;
+            }
 
             .blog-card h4 {
                 font-size: 1.3em;
@@ -462,6 +398,74 @@
                 display: block;
                 margin: 10px 0;
             }
+            .search-box{
+                width: 300px;
+            }
+            .post-info h4{
+                width: 200px;
+            }
+            .footer-section li{
+                width: 350px;
+            }
+            .footer-section p{
+                width: 320px;
+            }
+        }
+        
+        @media screen and (max-width: 320px) {
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h2 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .blog-card {
+                padding: 15px;
+            }
+            .blog-card img{
+                width: 250px;
+            }
+            .blog-card p{
+                width: 280px;
+            }
+
+            .blog-card h4 {
+                font-size: 1.3em;
+                width: 200px;
+            }
+
+            .footer-links a {
+                display: block;
+                margin: 10px 0;
+            }
+            .search-box{
+                width: 250px;
+            }
+            .post-info h4{
+                width: 200px;
+                font-size: xx-small;
+            }
+            .footer-section li{
+                width: 300px;
+            }
+            .footer-section p{
+                width: 300px;
+                font-size: xx-small;
+            }
+            .content h3{
+                width: 280px;
+            }
+            .footer-section{
+                display: table-column;
+            }
+
+             
         }
 
         .menu-toggle {
@@ -471,8 +475,9 @@
             padding: 5px;
             position: absolute;
             right: 20px;
-            top: 15px;
+            bottom:  15px  3px;
         }
+        
 
         @media screen and (max-width: 768px) {
             .menu-toggle {
@@ -545,18 +550,19 @@
 <body>
     <header>
         <div class="logo-nav-container">
-            <a href="/"><img src="/assets/images/logo.png" alt="GetterHub Logo" class="logo"></a>
+            <a href="index.html"><img src="assets/images/logo.png" alt="GetterHub Logo" class="logo"></a>
             <span class="menu-toggle">☰</span>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="/startups.html">Startups</a></li>
-                    <li><a href="/Services.html">Services</a></li>
-                    <li><a href="/products.html">Products</a></li>
-                    <li><a href="/ghgigs.html">GHGigs</a></li>
-                    <li><a href="/webflip.html">WebFlip</a></li>
-                    <li><a href="https://getterhost.com" target="_blank">Hosting</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
-                    <li><a href="/auth/login.html" class="login-btn">Login</a></li>
+                    <li><a href="Startups.html">Startups</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Products.html">Products</a></li>
+                    <li><a href="Ghgigs.html">GHGigs</a></li>
+                    <li><a href="Webflip.html">WebFlip</a></li>
+                    <li><a href="https://www.getterhost.com">Hosting</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a href="founder.html">Founders</a></li>
+                    <li><a href="auth/login.html" class="login-btn">Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -573,60 +579,60 @@
             <div class="blog-grid">
                 <!-- Blog 1 -->
                 <div class="blog-card">
-                    <img src="/assets/images/bill-gates.jpg" alt="Bill Gates">
+                    <img src="assets/images/masiyiwa.jpg" alt="Strive Masiyiwa">
                     <p class="category">Technology</p>
                     <h4>Strive Masiyiwa: The Innovator</h4>
                     <p>How Strive Masiyiwa built Econet and transformed the tech industry.</p>
                     <p class="meta">Date: Jan 17, 2025 | Admin: John Doe</p>
-                    <a href="/blog-post.html" class="read-more">Read More</a>
+                    <a href="Blogs/Strive.html" class="read-more">Read More</a>
                 </div>
                 <!-- Blog 2 -->
                 <div class="blog-card">
-                    <img src="/assets/images/elon-musk.jpg" alt="Elon Musk">
+                    <img src="assets/images/ashish.jpg" alt="Ashish Thakkar">
                     <p class="category">Innovation</p>
                     <h4>Ashish Thakkar: The Visionary</h4>
                     <p>From Mara Group to space, how Ashish Thakkar is shaping the future.</p>
                     <p class="meta">Date: Jan 17, 2025 | Admin: Jane Smith</p>
-                    <a href="/blog-post.html" class="read-more">Read More</a>
+                    <a href="Blogs/Thakkar.html" class="read-more">Read More</a>
                 </div>
                 <!-- Blog 3 -->
                 <div class="blog-card">
-                    <img src="/assets/images/oprah-winfrey.jpg" alt="Oprah Winfrey">
+                    <img src="assets/images/santos.jpg" alt="Isabel Dos Santos">
                     <p class="category">Media</p>
                     <h4>Isabel Dos Santos: Media Queen</h4>
                     <p>Isabel's journey from humble beginnings to media mogul.</p>
                     <p class="meta">Date: Jan 17, 2025 | Admin: Alex Brown</p>
-                    <a href="/blog-post.html" class="read-more">Read More</a>
+                    <a href="Blogs/Isabel.html" class="read-more">Read More</a>
                 </div>
 
                 <!-- Blog 4 -->
                 <div class="blog-card">
-                    <img src="/assets/images/oprah-winfrey.jpg" alt="Oprah Winfrey">
+                    <img src="assets/images/elumelu.jpg" alt="Tony Elumelu">
                     <p class="category">Media</p>
                     <h4>Tony Elumelu: Media Queen</h4>
                     <p>Tony's journey from humble beginnings to media mogul.</p>
                     <p class="meta">Date: Jan 17, 2025 | Admin: Alex Brown</p>
-                    <a href="/blog-post.html" class="read-more">Read More</a>
+                    <a href="Blogs/Elumelu.html" class="read-more">Read More</a>
                 </div>
 
                 <!-- Blog 5 -->
                 <div class="blog-card">
-                    <img src="/assets/images/oprah-winfrey.jpg" alt="Oprah Winfrey">
+                    <img src="assets/images/aliko.jpg" alt="Aliko Dangote">
                     <p class="category">Media</p>
                     <h4>Aliko Dangote: Media Queen</h4>
                     <p>Aliko's journey from humble beginnings to media mogul.</p>
                     <p class="meta">Date: Jan 17, 2025 | Admin: Alex Brown</p>
-                    <a href="/blog-post.html" class="read-more">Read More</a>
+                    <a href="Blogs/Dangote.html" class="read-more">Read More</a>
                 </div>
 
                 <!-- Blog 6 -->
                 <div class="blog-card">
-                    <img src="/assets/images/oprah-winfrey.jpg" alt="Oprah Winfrey">
+                    <img src="assets/images/alemu.jpg" alt="Tilahun Alemu">
                     <p class="category">Media</p>
                     <h4>Tilahun Alemu: Media Queen</h4>
                     <p>Tilahun's journey from humble beginnings to media mogul.</p>
                     <p class="meta">Date: Jan 17, 2025 | Admin: Alex Brown</p>
-                    <a href="/blog-post.html" class="read-more">Read More</a>
+                    <a href="Blogs/Alemu.html" class="read-more">Read More</a>
                 </div>
                 <!-- More blogs can go here -->
             </div>
@@ -649,7 +655,7 @@
             <div class="recent-posts">
                 <h3>Recent Posts</h3>
                 <div class="post-item">
-                    <img src="/assets/images/aliko-dangote.jpg" alt="Aliko Dangote">
+                    <img src="assets/images/aliko.jpg" alt="Aliko Dangote">
                     <div class="post-info">
                         <h4>The Success Story of Aliko Dangote</h4>
                         <span class="post-meta">January 6, 2025</span>
@@ -657,7 +663,7 @@
                 </div>
 
                 <div class="post-item">
-                    <img src="/assets/images/bethlehem-alemu.jpg" alt="Bethlehem Alemu">
+                    <img src="assets/images/alemu.jpg" alt="Bethlehem Alemu">
                     <div class="post-info">
                         <h4>Bethlehem Tilahun Alemu's Journey</h4>
                         <span class="post-meta">January 5, 2025</span>
@@ -665,7 +671,7 @@
                 </div>
 
                 <div class="post-item">
-                    <img src="/assets/images/tony-elumelu.jpg" alt="Tony Elumelu">
+                    <img src="assets/images/elumelu.jpg" alt="Tony Elumelu">
                     <div class="post-info">
                         <h4>Tony Elumelu: Entrepreneurship Champion</h4>
                         <span class="post-meta">January 4, 2025</span>
@@ -681,15 +687,15 @@
                 <h4>Popular Posts</h4>
                 <ul>
                     <li>
-                        <a href="#">The Success Story of Aliko Dangote: Africa's Business Titan</a>
+                        <a href="Blogs/Dangote.html">The Success Story of Aliko Dangote: Africa's Business Titan</a>
                         <span class="date">January 6, 2025</span>
                     </li>
                     <li>
-                        <a href="#">Bethlehem Tilahun Alemu: Ethiopia's Trailblazing Entrepreneur</a>
+                        <a href="Blogs/Alemu.html">Bethlehem Tilahun Alemu: Ethiopia's Trailblazing Entrepreneur</a>
                         <span class="date">January 5, 2025</span>
                     </li>
                     <li>
-                        <a href="#">The Success Story of Tony Elumelu: Africa's Champion of Entrepreneurship</a>
+                        <a href="Blogs/Elumelu.html">The Success Story of Tony Elumelu: Africa's Champion of Entrepreneurship</a>
                         <span class="date">January 4, 2025</span>
                     </li>
                 </ul>
@@ -698,9 +704,9 @@
             <div class="footer-section">
                 <h4>About Us</h4>
                 <ul>
-                    <li><a href="#">About GetterHub</a></li>
-                    <li><a href="#">Our Clients</a></li>
-                    <li><a href="#">Our Partners</a></li>
+                    <li><a href="about.html">About GetterHub</a></li>
+                    <li><a href="clients.html">Our Clients</a></li>
+                    <li><a href="partners.html">Our Partners</a></li>
                 </ul>
             </div>
 
@@ -717,33 +723,22 @@
         <div class="footer-bottom">
             <p>Copyright © 2025 - Getterhub.com</p>
             <div class="footer-links">
-                <a href="/terms.html">Terms & Services</a> | 
-                <a href="/privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Services</a> | 
+                <a href="privacy.html">Privacy Policy</a>
             </div>
         </div>
     </footer>
 
     <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('header nav');
-
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('header')) {
-                nav.classList.remove('active');
-            }
-        });
-
-        // Close menu when clicking a link
-        document.querySelectorAll('header nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('active');
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const nav = document.querySelector("header nav");
+    
+            menuToggle.addEventListener("click", function() {
+                nav.classList.toggle("active");
             });
         });
     </script>
+    
 </body>
 </html>

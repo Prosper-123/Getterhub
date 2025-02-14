@@ -16,7 +16,7 @@
         }
 
         header {
-            background-color: #2c3e50;
+            background-color: #3498db;
             padding: 15px 20px;
             color: white;
             position: sticky;
@@ -83,7 +83,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: url('assets/images/services-hero-new.jpg') no-repeat center center/cover;
+            background: url('assets/images/erp.jpg') no-repeat center center/cover;
         }
 
         .hero::before {
@@ -410,6 +410,7 @@
 
             .menu-toggle {
                 display: block;
+                padding: 0 0 0 600px;
             }
 
             .hero h1 {
@@ -424,7 +425,105 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+            /* .menu-toggle{
+                display: block;
+                padding:  0 0 0 500px;
+            } */
         }
+        @media screen and (max-width: 480px) {
+            header nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #2c3e50;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 10px 0;
+            }
+
+            header nav ul.active {
+                display: flex;
+            }
+
+            header nav ul li {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+                padding: 0 0 0 250px;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-buttons {
+                font-size: xx-small;
+                width: 300px;
+                /* padding: 0 0 0 0px; */
+            }
+        }
+        
+        /* mobile responsive */
+        @media screen and ( max-width: 320px) {
+            header nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #2c3e50;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 10px 0;
+            }
+            .menu-toggle{
+                display: block;
+                padding:  0 0 0 150px;
+            }
+
+            header nav ul.active {
+                display: flex;
+            }
+
+            header nav ul li {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-buttons {
+                font-size: xx-small;
+                width: 300px;
+            }
+        }
+        
+        
     </style>
 </head>
 <body>
@@ -434,13 +533,14 @@
             <span class="menu-toggle">☰</span>
             <nav>
                 <ul>
-                    <li><a href="startups.html">Startups</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="ghgigs.html">GHGigs</a></li>
-                    <li><a href="webflip.html">WebFlip</a></li>
-                    <li><a href="https://getterhost.com" target="_blank">Hosting</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="Startups.html">Startups</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Products.html">Products</a></li>
+                    <li><a href="Ghgigs.html">GHGigs</a></li>
+                    <li><a href="Webflip.html">WebFlip</a></li>
+                    <li><a href="https://www.getterhost.com" target="_blank">Hosting</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a href="founder.html">Founders</a></li>
                     <li><a href="./auth/login.html" class="login-btn">Login</a></li>
                 </ul>
             </nav>
@@ -462,7 +562,7 @@
     <!-- Services Section -->
     <section id="services" class="services-grid">
         <div class="service-card">
-            <img src="assets/images/web-dev.jpg" alt="Web Development" class="service-image">
+            <img src="assets/images/websites.jpg" alt="Web Development" class="service-image">
             <div class="service-content">
                 <h3>Web Development</h3>
                 <p>Custom web solutions tailored to your business needs</p>
@@ -477,7 +577,7 @@
         </div>
 
         <div class="service-card">
-            <img src="assets/images/mobile-dev.jpg" alt="Mobile Development" class="service-image">
+            <img src="assets/images/apps.jpg" alt="Mobile Development" class="service-image">
             <div class="service-content">
                 <h3>Mobile Development</h3>
                 <p>Native and cross-platform mobile applications</p>
@@ -507,7 +607,7 @@
         </div>
 
         <div class="service-card">
-            <img src="assets/images/ai-ml.jpg" alt="AI & Machine Learning" class="service-image">
+            <img src="assets/images/machine.jpg" alt="AI & Machine Learning" class="service-image">
             <div class="service-content">
                 <h3>AI & Machine Learning</h3>
                 <p>Intelligent solutions powered by advanced AI</p>
@@ -522,7 +622,7 @@
         </div>
 
         <div class="service-card">
-            <img src="assets/images/cybersecurity.jpg" alt="Cybersecurity" class="service-image">
+            <img src="assets/images/cyberSecurity.jpg" alt="Cybersecurity" class="service-image">
             <div class="service-content">
                 <h3>Cybersecurity</h3>
                 <p>Protect your digital assets with robust security</p>

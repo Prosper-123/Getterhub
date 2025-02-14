@@ -18,12 +18,35 @@
             justify-content: center;
             height: 100vh;
             color: #333;
+            position: relative;
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            height: 60px; /* Adjust as needed */
+            width: auto;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
         }
 
         /* Hero Section */
         .hero {
             text-align: center;
-            margin-bottom: 30px;
+            margin-top: 80px; /* Push content down to accommodate logo */
             padding: 20px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
@@ -154,13 +177,19 @@
 </head>
 <body>
 
+    <div class="logo-container">
+        <a href="../index.html">
+            <img src="../assets/images/logo.png" alt="GetterHub Logo" class="logo">
+        </a>
+    </div>
+
     <div class="hero">
         <h1>Welcome Back to GetterHub</h1>
         <p>Log in to access all our services</p>
     </div>
 
-    <div class="login-form-container">
-        <form action="login_process.php" method="POST">
+    <div class="login-form">
+        <form id="login-form">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
@@ -180,10 +209,50 @@
             </div>
 
             <div class="form-group">
-                <p>New to GetterHub? <a href="./Register.html">Sign Up</a></p>
+                <p>New to GetterHub? <a href="Register.html">Sign Up</a></p>
             </div>
         </form>
     </div>
+
+    <script type="module">
+        // Import the functions you need from Firebase SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+    
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC_GSFB8EpEZtditAToHY0VqwGFWxADFuU",
+            authDomain: "getterhub.firebaseapp.com",
+            projectId: "getterhub",
+            storageBucket: "getterhub.appspot.com",
+            messagingSenderId: "181973620659",
+            appId: "1:181973620659:web:0e6f357d8ee3e5fa329dc6"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+    
+        // Handle login form submission
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+    
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+    
+            // Sign in with Firebase
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in successfully
+                    console.log('User logged in:', userCredential.user);
+                    window.location.href = 'dashboard.html'; // Redirect to dashboard
+                })
+                .catch((error) => {
+                    console.error('Login error:', error.message);
+                    alert(error.message); // Show error to user
+                });
+        });
+    </script>
 
 </body>
 </html>

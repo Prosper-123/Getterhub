@@ -13,10 +13,12 @@
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
+            /* overflow: hidden; */
+            /* width: 100%;  */
         }
 
         header {
-            background-color: #2c3e50;
+            background-color: #3498db;
             padding: 15px 20px;
             color: white;
             position: sticky;
@@ -58,7 +60,7 @@
         }
 
         header nav .login-btn {
-            background-color: #3498db;
+            background-color: #2ecc71;
             padding: 8px 15px;
             color: white;
             font-weight: bold;
@@ -67,7 +69,7 @@
         }
 
         header nav .login-btn:hover {
-            background-color: #2980b9;
+            background-color: #27ae60;
         }
 
         .menu-toggle {
@@ -83,7 +85,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: url('assets/images/hero-bg.jpg') no-repeat center center/cover;
+            background: url('assets/images/entrepreneurship.webp') no-repeat center center/cover;
         }
 
         .hero::before {
@@ -239,10 +241,13 @@
             height: fit-content;
             background: white;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-
+        .search-box {
+            margin-bottom: 30px;
+            width: 280px;
+        }
         .search-box input {
             width: 100%;
             padding: 12px;
@@ -250,6 +255,8 @@
             border-radius: 5px;
             font-size: 1em;
             transition: border-color 0.3s;
+            width: 250px;
+
         }
 
         .search-box input:focus {
@@ -355,8 +362,67 @@
             color: #f1c40f;
         }
 
-        /* Responsive Styles */
+        
+    
         @media screen and (max-width: 768px) {
+            header nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #2c3e50;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 10px 0;
+            }
+
+            header nav ul.active {
+                display: flex;
+            }
+
+            header nav ul li {
+                text-align: center;
+                padding: 10px 0;
+                /* width: 100%; */
+            }
+
+            .menu-toggle {
+                display: block;
+                padding: 0 0 0 500px;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .sidebar {
+                width: 80%;
+                position: static;
+                margin-top: 30px;
+                grid-template-columns: 1fr;
+
+            }
+            .main-container {
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                padding: 15px;
+                margin-top: 20px;
+            }
+            /* .menu-toggle{
+                display: block;
+                padding:  0 0 0 500px;
+            } */
+        }
+        @media screen and (max-width: 480px) {
             header nav ul {
                 display: none;
                 flex-direction: column;
@@ -379,17 +445,7 @@
 
             .menu-toggle {
                 display: block;
-            }
-
-            .main-container {
-                flex-direction: column;
-                padding: 0 20px;
-            }
-
-            .sidebar {
-                width: 100%;
-                position: static;
-                margin-top: 30px;
+                padding: 0 0 0 250px;
             }
 
             .hero h1 {
@@ -404,6 +460,68 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+            .hero-buttons {
+                font-size: xx-small;
+                width: 300px;
+                /* padding: 0 0 0 0px; */
+            }
+        }
+        
+        /* mobile responsive */
+        @media screen and ( max-width: 320px) {
+            header nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #2c3e50;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 10px 0;
+            }
+            .menu-toggle{
+                display: block;
+                padding:  0 0 0 150px;
+            }
+            
+
+            header nav ul.active {
+                display: flex;
+            }
+
+            header nav ul li {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-buttons {
+                font-size: xx-small;
+                width: 300px;
+            }
+            .search-box input {
+                padding: 12px;
+                border: 2px solid #e0e0e0;
+                border-radius: 5px;
+                font-size: 1em;
+                transition: border-color 0.3s;
+                width: 200px;
+            }
         }
     </style>
 </head>
@@ -414,13 +532,14 @@
             <span class="menu-toggle">☰</span>
             <nav>
                 <ul>
-                    <li><a href="startups.html">Startups</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="ghgigs.html">GHGigs</a></li>
-                    <li><a href="webflip.html">WebFlip</a></li>
-                    <li><a href="https://getterhost.com" target="_blank">Hosting</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="Startups.html">Startups</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Products.html">Products</a></li>
+                    <li><a href="Ghgigs.html">GHGigs</a></li>
+                    <li><a href="Webflip.html">WebFlip</a></li>
+                    <li><a href="https://www.getterhost.com" target="_blank">Hosting</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a href="founder.html">Founders</a></li>
                     <li><a href="./auth/login.html" class="login-btn">Login</a></li>
                 </ul>
             </nav>
@@ -444,51 +563,79 @@
             <div class="blog-grid">
                 <!-- Blog 1 -->
                 <div class="blog-card">
-                    <img src="assets/images/startup1.jpg" alt="Startup Success Story">
+                    <img src="./assets/images/ai.jpg" alt="Startup Success Story">
                     <span class="category">Technology</span>
                     <h4>AI Startup Revolutionizes Healthcare</h4>
                     <p>How a small team of innovators is changing the future of medical diagnostics.</p>
                     <p class="meta">Date: Jan 20, 2025 | By: Sarah Johnson</p>
-                    <a href="#" class="read-more">Read More</a>
+                    <a href="./startups/Healthcare.html" class="read-more">Read More</a>
                 </div>
                 <!-- Blog 2 -->
                 <div class="blog-card">
-                    <img src="assets/images/startup2.jpg" alt="Green Energy Innovation">
+                    <img src="./assets/images/solar.jpg" alt="Green Energy Innovation">
                     <span class="category">Clean Energy</span>
                     <h4>Solar Revolution: The Next Big Thing</h4>
                     <p>Exploring the breakthrough in affordable solar technology.</p>
                     <p class="meta">Date: Jan 19, 2025 | By: Michael Chen</p>
-                    <a href="#" class="read-more">Read More</a>
+                    <a href="./startups/Solar.html" class="read-more">Read More</a>
                 </div>
                 <!-- Blog 3 -->
                 <div class="blog-card">
-                    <img src="assets/images/startup3.jpg" alt="Fintech Innovation">
+                    <img src="./assets/images/blockchain.jpg" alt="Fintech Innovation">
                     <span class="category">Fintech</span>
                     <h4>Blockchain Banking: A New Era</h4>
                     <p>How fintech startups are reshaping traditional banking.</p>
                     <p class="meta">Date: Jan 18, 2025 | By: Alex Rivera</p>
-                    <a href="#" class="read-more">Read More</a>
+                    <a href="./startups/Blockchain.html" class="read-more">Read More</a>
+                </div>
+                <!-- Blog 4 -->
+                <div class="blog-card">
+                    <img src="assets/images/ecommerce.jpg" alt="E-commerce Innovation">
+                    <span class="category">E-commerce</span>
+                    <h4>E-commerce Revolution: The Future of Online Shopping</h4>
+                    <p>How e-commerce startups are changing the way we shop online.</p>
+                    <a href="./startups/Ecommerce.html" class="read-more">Read More</a>
+                </div>
+                <!-- Blog 5 -->
+                <div class="blog-card">
+                    <img src="./assets/images/online learning.avif" alt="Education Startup">
+                    <span class="category">Education</span>
+                    <h4>Revolutionizing Online Learning</h4>
+                    <p>Discover how education startups are changing the way we learn online.</p>
+                    <p class="meta">Date: Jan 17, 2025 | By: Emily Taylor</p>
+                    <a href="./startups/online.html" class="read-more">Read More</a>
+                </div>
+                <!-- Blog 6 -->
+                <div class="blog-card">
+                    <img src="./assets/images/food.avif" alt="FoodTech Innovation">
+                    <span class="category">FoodTech</span>
+                    <h4>FoodTech: Reinventing the Food Industry</h4>
+                    <p>How technology is transforming the global food industry.</p>
+                    <p class="meta">Date: Jan 16, 2025 | By: David Lee</p>
+                    <a href="./startups/food.html" class="read-more">Read More</a>
                 </div>
             </div>
+            
+          
         </section>
 
         <aside class="sidebar">
             <div class="search-box">
-                <input type="text" placeholder="Search startups...">
+                <input type="text" id="searchInput" placeholder="Search startups...">
             </div>
             <div class="recent-posts">
                 <h3>Recent Startups</h3>
                 <div class="post-item">
-                    <img src="assets/images/startup1.jpg" alt="Startup 1">
+                    <img src="assets/images/ai.jpg" alt="Startup 1">
                     <div class="post-info">
-                        <h4>Innovative Tech Startup Raises $10M</h4>
+                        <h4>AI Startup Revolutionizes Healthcare</h4>
                         <span class="post-meta">January 6, 2025</span>
                     </div>
                 </div>
                 <div class="post-item">
-                    <img src="assets/images/startup2.jpg" alt="Startup 2">
+                    <img src="assets/images/blockchain.jpg" alt="Blockchain">
                     <div class="post-info">
-                        <h4>Green Energy Revolution Startup</h4>
+                        <h4>Blockchain Banking: A New Era</h4>
                         <span class="post-meta">January 5, 2025</span>
                     </div>
                 </div>
@@ -544,6 +691,20 @@
                 nav.classList.remove('active');
             }
         });
+        document.getElementById("searchInput").addEventListener("input", function () {
+    let filter = this.value.toLowerCase();
+    let posts = document.querySelectorAll(".post-item");
+
+    posts.forEach(post => {
+        let title = post.querySelector("h4").textContent.toLowerCase();
+        if (title.includes(filter)) {
+            post.style.display = "flex"; // Show matching items
+        } else {
+            post.style.display = "none"; // Hide non-matching items
+        }
+    });
+});
+
     </script>
 </body>
 </html>

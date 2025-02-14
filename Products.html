@@ -16,7 +16,7 @@
         }
 
         header {
-            background-color: #2c3e50;
+            background-color: #3498db;
             padding: 15px 20px;
             color: white;
             position: sticky;
@@ -83,7 +83,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: url('assets/images/products-hero.jpg') no-repeat center center/cover;
+            background: url('assets/images/annei.jpg') no-repeat center center/cover;
         }
 
         .hero::before {
@@ -298,7 +298,7 @@
 
         .footer-links a:hover {
             color: #f1c40f;
-        }
+        }   
 
         /* Responsive Styles */
         @media screen and (max-width: 768px) {
@@ -324,6 +324,8 @@
 
             .menu-toggle {
                 display: block;
+                padding:  0 0 0 500px;
+
             }
 
             .hero h1 {
@@ -339,6 +341,83 @@
                 text-align: center;
             }
         }
+        @media screen and (max-width: 480px) {
+            /* .menu-toggle{
+                display: block;
+                padding:  0 0 0 200px;
+            } */
+            header nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #2c3e50;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 10px 0;
+            }
+
+            header nav ul.active {
+                display: flex;
+            }
+
+            header nav ul li {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+                padding: 0 0 0 250px;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-buttons {
+                font-size: xx-small;
+                width: 250px;
+                /* padding: 0 0 0 0px; */
+            }
+            .hero-btn {
+                padding: 10px 20px ;
+                margin: 0 5px;
+                justify-content: center;
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .hero-buttons {
+                font-size: xx-small;
+                /* width: 350px; */
+            }
+
+            .hero-btn {
+                padding: 10px 20px;
+                margin: 0 5px;
+            }
+            .menu-toggle{
+                display: block;
+                padding:  0 0 0 180px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -348,13 +427,14 @@
             <span class="menu-toggle">☰</span>
             <nav>
                 <ul>
-                    <li><a href="startups.html">Startups</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="ghgigs.html">GHGigs</a></li>
-                    <li><a href="webflip.html">WebFlip</a></li>
-                    <li><a href="https://getterhost.com" target="_blank">Hosting</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="Startups.html">Startups</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Products.html">Products</a></li>
+                    <li><a href="Ghgigs.html">GHGigs</a></li>
+                    <li><a href="Webflip.html">WebFlip</a></li>
+                    <li><a href="https://www.getterhost.com" target="_blank">Hosting</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a href="founder.html">Founders</a></li>
                     <li><a href="./auth/login.html" class="login-btn">Login</a></li>
                 </ul>
             </nav>
@@ -376,7 +456,7 @@
     <!-- Products Grid -->
     <section id="products" class="products-grid">
         <div class="product-card">
-            <img src="assets/images/erp-system.jpg" alt="ERP System" class="product-image">
+            <img src="assets/images/erp.jpg" alt="ERP System" class="product-image">
             <div class="product-content">
                 <h3>Enterprise ERP</h3>
                 <p>Comprehensive enterprise resource planning solution</p>
@@ -393,7 +473,7 @@
         </div>
 
         <div class="product-card">
-            <img src="assets/images/crm-system.jpg" alt="CRM System" class="product-image">
+            <img src="assets/images/crm.jpg" alt="CRM System" class="product-image">
             <div class="product-content">
                 <h3>Smart CRM</h3>
                 <p>Customer relationship management platform</p>
@@ -410,7 +490,7 @@
         </div>
 
         <div class="product-card">
-            <img src="assets/images/pos-system.jpg" alt="POS System" class="product-image">
+            <img src="assets/images/pos.jpg" alt="POS System" class="product-image">
             <div class="product-content">
                 <h3>POS System</h3>
                 <p>Modern point of sale solution</p>
@@ -427,7 +507,7 @@
         </div>
 
         <div class="product-card">
-            <img src="assets/images/hr-system.jpg" alt="HR System" class="product-image">
+            <img src="assets/images/hrm.png" alt="HR System" class="product-image">
             <div class="product-content">
                 <h3>HR Management</h3>
                 <p>Complete human resource management system</p>
@@ -444,7 +524,7 @@
         </div>
 
         <div class="product-card">
-            <img src="assets/images/analytics-platform.jpg" alt="Analytics Platform" class="product-image">
+            <img src="assets/images/delivery.jpg" alt="Analytics Platform" class="product-image">
             <div class="product-content">
                 <h3>Analytics Platform</h3>
                 <p>Business intelligence and analytics solution</p>
@@ -461,7 +541,7 @@
         </div>
 
         <div class="product-card">
-            <img src="assets/images/ecommerce-platform.jpg" alt="E-commerce Platform" class="product-image">
+            <img src="assets/images/ecommerce.png" alt="E-commerce Platform" class="product-image">
             <div class="product-content">
                 <h3>E-commerce Platform</h3>
                 <p>Complete online store solution</p>
